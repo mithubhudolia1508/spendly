@@ -1,0 +1,43 @@
+Add two links to the footer in @templates/base.html :                  
+  - "Terms and Condition"                                                
+  - "Privacy Policy"                                                     
+                                                                         
+  Both should be plain text link, no special styling needed for now.     
+  point both to "#" as placeholder href. since the page don't exist      
+  yet.                                                                   
+  Do not modify anything else on the page.    
+
+git add .
+git commit -m "landing: add terms and privacy links to footer"  
+
+Create a "Terms and Condition" page for spendly.
+
+1. Add a new route in [@app.py](http://app.py/):
+GET /terms - render templates/terms.html
+2.create template/terms.html with generic terms and conditions content appropiate for a personal expense tracking app.
+Include sections like : Acceptence of terms, use of services, user date, limitation of liability, and chnages of terms.
+Extend base.html if it exists, otherwise match the style of landing.html.
+3.In @templates/landing.html, update the "Terms and Conditions" footer link href from "#" tp "/terms".
+
+git add .
+git commit -m "landing: add terms and condition page and route" 
+
+create a Privacy Policy page too                                       
+  Do the same as you did for the Terms and Conditions page, but for      
+  Privacy Policy .                                                       
+                                                                         
+  1.Add a new route in [@app.py](http://app.py):                         
+  GET /privacy - render templates/privacy.html                           
+  2.Create templates/privacy.html with generic privacy policy content    
+  appropiate for a personal expense tracking apps.                       
+  Include sections like: Data we collect, how we use your data, data     
+  storage, third party services, and contact us.                         
+  Match the style and theme  of terms.html    
+
+
+  
+
+-- If needed -- not mandatory
+  Git repo - https://github.com/mithubhudolia1508/spendly.git 
+  git remote add origin https://github.com/mithubhudolia1508/spendly.git                                  
+  git push --set-upstream origin main 
