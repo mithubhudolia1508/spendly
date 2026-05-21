@@ -1,3 +1,7 @@
+app.py
+http://127.0.0.1:5001/
+
+
 Add two links to the footer in @templates/base.html :                  
   - "Terms and Condition"                                                
   - "Privacy Policy"                                                     
@@ -9,6 +13,7 @@ Add two links to the footer in @templates/base.html :
 
 git add .
 git commit -m "landing: add terms and privacy links to footer"  
+git push
 
 Create a "Terms and Condition" page for spendly.
 
@@ -21,6 +26,7 @@ Extend base.html if it exists, otherwise match the style of landing.html.
 
 git add .
 git commit -m "landing: add terms and condition page and route" 
+git push
 
 create a Privacy Policy page too                                       
   Do the same as you did for the Terms and Conditions page, but for      
@@ -41,3 +47,52 @@ create a Privacy Policy page too
   Git repo - https://github.com/mithubhudolia1508/spendly.git 
   git remote add origin https://github.com/mithubhudolia1508/spendly.git                                  
   git push --set-upstream origin main 
+
+
+Hiro image
+  https://drive.google.com/file/d/1aZYxOfOTIR4tLHe6bLorC4uPoaLUfzev/view
+
+
+Modify only the Hero section in @templates/landing.html and @static/css/style.css
+to match this image exactly. Do not touch any other part of the page
+
+
+git add .
+git commit -m "landing: redesign hero section to match mockup" 
+git push
+
+
+Add a model to @templates/landing.html that open when the user clicks 
+"See how it works".
+
+Requirements:
+- Clicking "See how it works" open a modal overlay
+- modal contains and embedded youtube video (use any placeholder youtube url
+for now, I will replace it later)
+- Video should be playable inside the modal- Clicking the close button OR clicking outside the modal closes it
+- when the modal closes, the video must stop playing (not continue running in background)
+- no page libraries or dependencies - vanilla JS only, since we are not using any JS framework in this project
+
+Do not modify any other part of the page
+
+git add .
+git commit -m "landing: Added youtube modal on see how it work clicks" 
+git push
+
+--------------------------------
+--------------------------------
+-- Good Practice : 
+1. One session per feature
+2. Use /compact (proactively, not reactively) 
+-- /context to check ussage on claude context 
+--  /compact to fill 33k ussage with summary and 
+
+3. Write focused , specific prompts
+4. use Subagents for isolatedor exploratory work
+5. use .claudeignore to keep Irrelevent files out
+
+
+/init - will generate claude.md file -where claude analyse entire codebase and generate automatically a MD file with full details & informations about the project.
+
+--------------------------------
+--------------------------------
