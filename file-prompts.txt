@@ -84,7 +84,7 @@ git push
 -- Good Practice : 
 1. One session per feature
 2. Use /compact (proactively, not reactively) 
--- /context to check ussage on claude context 
+-- /context to check ussage on claude context  
 --  /compact to fill 33k ussage with summary and 
 
 3. Write focused , specific prompts
@@ -96,3 +96,20 @@ git push
 
 --------------------------------
 --------------------------------
+
+Sample example :
+Prompt - build me a user auth system
+
+vibe code - where AI agent have all the control
+spec driven development :  (most of the control to us) - by providing spec document
+--------------------------
+Problem statement - why part 
+functional requirement - what do u want
+AP contract (input , output, data shape)
+Constraint
+Edge cases and error handling
+Accepotance criteria
+
+
+-- New feature branch created :
+! git push origin features/database-setup 
