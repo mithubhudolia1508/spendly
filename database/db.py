@@ -58,6 +58,30 @@ def get_user_by_email(email):
     return user
 
 
+def get_user_by_id(user_id):
+    conn = get_db()
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    conn.close()
+    return user
+
+
+def update_user_name(user_id, name):
+    conn = get_db()
+    conn.execute("UPDATE users SET name = ? WHERE id = ?", (name, user_id))
+    conn.commit()
+    conn.close()
+
+
+def update_user_password(user_id, new_password):
+    conn = get_db()
+    conn.execute(
+        "UPDATE users SET password_hash = ? WHERE id = ?",
+        (generate_password_hash(new_password), user_id),
+    )
+    conn.commit()
+    conn.close()
+
+
 def seed_db():
     conn = get_db()
     existing = conn.execute(
