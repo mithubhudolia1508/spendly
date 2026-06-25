@@ -60,7 +60,7 @@ def login():
 
         session.clear()
         session["user_id"] = user["id"]
-        return redirect(url_for("landing"))
+        return redirect(url_for("profile"))
 
     return render_template("login.html")
 
@@ -87,7 +87,45 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return "Profile page — coming in Step 4"
+    if not session.get("user_id"):
+        return redirect(url_for("login"))
+
+    user = {
+        "name": "Demo User",
+        "email": "demo@spendly.com",
+        "initials": "D",
+        "member_since": "01 May 2026",
+    }
+
+    stats = {
+        "total_spent": "₹6,110",
+        "transactions": 8,
+        "top_category": "Shopping",
+    }
+
+    expenses = [
+        {"date": "18 May 2026", "description": "Miscellaneous",   "category": "Other",         "amount": "₹600"},
+        {"date": "15 May 2026", "description": "Metro recharge",   "category": "Transport",     "amount": "₹90"},
+        {"date": "12 May 2026", "description": "Grocery haul",     "category": "Shopping",      "amount": "₹2,500"},
+        {"date": "10 May 2026", "description": "Movie tickets",    "category": "Entertainment", "amount": "₹350"},
+        {"date": "08 May 2026", "description": "Pharmacy",         "category": "Health",        "amount": "₹800"},
+        {"date": "05 May 2026", "description": "Electricity bill", "category": "Bills",         "amount": "₹1,200"},
+        {"date": "03 May 2026", "description": "Auto to office",   "category": "Transport",     "amount": "₹120"},
+        {"date": "01 May 2026", "description": "Lunch at café",    "category": "Food",          "amount": "₹450"},
+    ]
+
+    categories = [
+        {"name": "Shopping",      "amount": "₹2,500", "pct": 41},
+        {"name": "Bills",         "amount": "₹1,200", "pct": 20},
+        {"name": "Health",        "amount": "₹800",   "pct": 13},
+        {"name": "Other",         "amount": "₹600",   "pct": 10},
+        {"name": "Food",          "amount": "₹450",   "pct": 7},
+        {"name": "Entertainment", "amount": "₹350",   "pct": 6},
+        {"name": "Transport",     "amount": "₹210",   "pct": 3},
+    ]
+
+    return render_template("profile.html", user=user, stats=stats,
+                           expenses=expenses, categories=categories)
 
 
 @app.route("/expenses/add")
